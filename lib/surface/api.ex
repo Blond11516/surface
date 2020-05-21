@@ -566,6 +566,9 @@ defmodule Surface.API do
         nil ->
           {env.line, props_doc}
 
+        {_line, false} ->
+          {env.line, props_doc}
+
         {line, doc} ->
           {line, doc <> "\n" <> props_doc}
       end

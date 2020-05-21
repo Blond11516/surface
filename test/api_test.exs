@@ -659,6 +659,15 @@ defmodule Surface.APITest do
            """
   end
 
+  test "generate documentation when @moduledoc is defined but false" do
+    assert get_docs(Surface.PropertiesTest.Components.MyComponentWithModuledocFalse) == """
+           ### Properties
+
+           * **label** *:string, required: true, default: ""* - The label.
+           * **class** *:css_class* - The class.
+           """
+  end
+
   defp eval(code) do
     id = :erlang.unique_integer([:positive]) |> to_string()
     module_name = "TestLiveComponent_#{id}"
